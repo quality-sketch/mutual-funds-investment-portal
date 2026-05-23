@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,61 +18,7 @@ padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
-<script>
 
-document.querySelector("form").addEventListener("submit", async function(e){
-
-e.preventDefault();
-
-const data = {
-
-fullName: document.querySelector('input[placeholder="Enter your full name"]').value,
-
-mobile: document.querySelector('input[placeholder="Enter mobile number"]').value,
-
-email: document.querySelector('input[placeholder="Enter email address"]').value,
-
-city: document.querySelector('input[placeholder="Enter city"]').value,
-
-occupation: document.querySelector('input[placeholder="Enter occupation"]').value,
-
-dob: document.querySelector('input[type="date"]').value,
-
-goal: document.querySelectorAll("select")[0].value,
-
-horizon: document.querySelectorAll("select")[1].value,
-
-monthly: document.querySelectorAll("select")[2].value,
-
-type: document.querySelectorAll("select")[3].value,
-
-riskReaction: document.querySelector('input[name="risk"]:checked')?.parentElement.innerText || "",
-
-riskAppetite: document.querySelector('input[name="appetite"]:checked')?.parentElement.innerText || "",
-
-investments: Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-.map(el => el.parentElement.innerText)
-.join(", "),
-
-kyc: document.querySelector('input[name="kyc"]:checked')?.parentElement.innerText || "",
-
-pan: document.querySelector('input[name="pan"]:checked')?.parentElement.innerText || ""
-
-};
-await fetch("https://script.google.com/macros/library/d/1uFqY3xkHv0Cw6C8cjotnvhsP40kg6FAxgQiwhmZB192jJN53SlaURVlj/4", {
-<form action="" method="post">
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify(data)
-});
-alert("Form Submitted Successfully!");
-
-document.querySelector("form").reset();
-
-});
-
-</script>
 body{
 background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
 min-height:100vh;
@@ -291,8 +238,6 @@ Please fill out this form so our advisory team can understand your investment ne
 
 <form>
 
-<!-- Section 1 -->
-
 <div class="section">
 
 <h2>Section 1 — Basic Client Information</h2>
@@ -340,8 +285,6 @@ Please fill out this form so our advisory team can understand your investment ne
 </div>
 
 </div>
-
-<!-- Section 2 -->
 
 <div class="section">
 
@@ -397,8 +340,6 @@ Please fill out this form so our advisory team can understand your investment ne
 </div>
 
 </div>
-
-<!-- Section 3 -->
 
 <div class="section">
 
@@ -456,8 +397,6 @@ Aggressive
 
 </div>
 
-<!-- Section 4 -->
-
 <div class="section">
 
 <h2>Section 4 — Existing Investments</h2>
@@ -465,22 +404,15 @@ Aggressive
 <div class="options">
 
 <label><input type="checkbox"> Mutual Funds</label>
-
 <label><input type="checkbox"> Stocks</label>
-
 <label><input type="checkbox"> FD</label>
-
 <label><input type="checkbox"> Insurance</label>
-
 <label><input type="checkbox"> Gold</label>
-
 <label><input type="checkbox"> None</label>
 
 </div>
 
 </div>
-
-<!-- Section 5 -->
 
 <div class="section">
 
@@ -493,9 +425,7 @@ Aggressive
 <div class="options">
 
 <label><input type="radio" name="kyc"> Yes</label>
-
 <label><input type="radio" name="kyc"> No</label>
-
 <label><input type="radio" name="kyc"> Not Sure</label>
 
 </div>
@@ -509,7 +439,6 @@ Aggressive
 <div class="options">
 
 <label><input type="radio" name="pan"> Yes</label>
-
 <label><input type="radio" name="pan"> No</label>
 
 </div>
@@ -517,8 +446,6 @@ Aggressive
 </div>
 
 </div>
-
-<!-- Section 6 -->
 
 <div class="section">
 
@@ -545,7 +472,7 @@ Documents uploaded are secure and confidential.
 
 </div>
 
-<button type="button" onclick="submitForm()">
+<button type="button" class="submit-btn" onclick="submitForm()">
 Submit
 </button>
 
@@ -556,6 +483,77 @@ Submit
 </div>
 
 </div>
+
+<script>
+
+async function submitForm() {
+
+const data = {
+
+fullName: document.querySelector('input[placeholder="Enter your full name"]').value,
+
+mobile: document.querySelector('input[placeholder="Enter mobile number"]').value,
+
+email: document.querySelector('input[placeholder="Enter email address"]').value,
+
+city: document.querySelector('input[placeholder="Enter city"]').value,
+
+occupation: document.querySelector('input[placeholder="Enter occupation"]').value,
+
+dob: document.querySelector('input[type="date"]').value,
+
+goal: document.querySelectorAll("select")[0].value,
+
+horizon: document.querySelectorAll("select")[1].value,
+
+monthly: document.querySelectorAll("select")[2].value,
+
+type: document.querySelectorAll("select")[3].value,
+
+riskReaction: document.querySelector('input[name="risk"]:checked')?.parentElement.innerText || "",
+
+riskAppetite: document.querySelector('input[name="appetite"]:checked')?.parentElement.innerText || "",
+
+investments: Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+.map(el => el.parentElement.innerText)
+.join(", "),
+
+kyc: document.querySelector('input[name="kyc"]:checked')?.parentElement.innerText || "",
+
+pan: document.querySelector('input[name="pan"]:checked')?.parentElement.innerText || ""
+
+};
+
+try {
+
+await fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
+
+method: "POST",
+
+headers: {
+"Content-Type": "application/json"
+},
+
+body: JSON.stringify(data)
+
+});
+
+alert("Form Submitted Successfully!");
+
+document.querySelector("form").reset();
+
+}
+
+catch(error){
+
+alert("Error aa raha h");
+console.log(error);
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
