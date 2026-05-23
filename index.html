@@ -58,15 +58,13 @@ kyc: document.querySelector('input[name="kyc"]:checked')?.parentElement.innerTex
 pan: document.querySelector('input[name="pan"]:checked')?.parentElement.innerText || ""
 
 };
-
 await fetch("https://script.google.com/macros/library/d/1uFqY3xkHv0Cw6C8cjotnvhsP40kg6FAxgQiwhmZB192jJN53SlaURVlj/4", {
-
-method:"POST",
-
-body:JSON.stringify(data)
-
+<form action="" method="post">
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify(data)
 });
-
 alert("Form Submitted Successfully!");
 
 document.querySelector("form").reset();
@@ -547,8 +545,8 @@ Documents uploaded are secure and confidential.
 
 </div>
 
-<button class="submit-btn" type="submit">
-Submit Registration
+<button type="button" onclick="submitForm()">
+Submit
 </button>
 
 </form>
