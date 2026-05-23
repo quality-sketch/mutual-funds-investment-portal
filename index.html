@@ -1,0 +1,276 @@
+export default function MutualFundForm() {
+  return (
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-xl p-8">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-800">
+            Mutual Fund Investment Registration Form
+          </h1>
+          <p className="text-gray-600 mt-3 text-lg">
+            Thank you for your interest in mutual fund investments. Please fill out this form so our advisory team can understand your investment needs and contact you.
+          </p>
+        </div>
+
+        <form className="space-y-10">
+          {/* Section 1 */}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">
+              Section 1 — Basic Client Information
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="border rounded-xl p-3"
+              />
+
+              <input
+                type="tel"
+                placeholder="Mobile Number"
+                maxLength={10}
+                className="border rounded-xl p-3"
+              />
+
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="border rounded-xl p-3"
+              />
+
+              <input
+                type="text"
+                placeholder="City"
+                className="border rounded-xl p-3"
+              />
+
+              <input
+                type="text"
+                placeholder="Occupation"
+                className="border rounded-xl p-3"
+              />
+
+              <input
+                type="date"
+                className="border rounded-xl p-3"
+              />
+            </div>
+          </div>
+
+          {/* Section 2 */}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">
+              Section 2 — Investment Profile
+            </h2>
+
+            <div className="space-y-5">
+              <div>
+                <label className="font-medium block mb-2">
+                  Investment Goal
+                </label>
+                <select className="w-full border rounded-xl p-3">
+                  <option>Wealth Creation</option>
+                  <option>Tax Saving</option>
+                  <option>Retirement</option>
+                  <option>Child Education</option>
+                  <option>Regular Income</option>
+                  <option>Emergency Fund</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-medium block mb-2">
+                  Investment Horizon
+                </label>
+                <select className="w-full border rounded-xl p-3">
+                  <option>Less than 1 year</option>
+                  <option>1–3 years</option>
+                  <option>3–5 years</option>
+                  <option>5+ years</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-medium block mb-2">
+                  Monthly Investment Capacity
+                </label>
+                <select className="w-full border rounded-xl p-3">
+                  <option>₹1,000–₹5,000</option>
+                  <option>₹5,000–₹25,000</option>
+                  <option>₹25,000–₹1 lakh</option>
+                  <option>₹1 lakh+</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-medium block mb-2">
+                  Preferred Investment Type
+                </label>
+                <select className="w-full border rounded-xl p-3">
+                  <option>SIP</option>
+                  <option>Lump Sum</option>
+                  <option>Both</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3 */}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">
+              Section 3 — Risk Profile
+            </h2>
+
+            <div className="space-y-5">
+              <div>
+                <label className="font-medium block mb-3">
+                  How would you react if your portfolio falls 15% temporarily?
+                </label>
+
+                <div className="space-y-2">
+                  <label className="flex gap-2 items-center">
+                    <input type="radio" name="risk" /> Sell immediately
+                  </label>
+
+                  <label className="flex gap-2 items-center">
+                    <input type="radio" name="risk" /> Wait for recovery
+                  </label>
+
+                  <label className="flex gap-2 items-center">
+                    <input type="radio" name="risk" /> Invest more
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label className="font-medium block mb-3">
+                  Risk Appetite
+                </label>
+
+                <div className="space-y-2">
+                  <label className="flex gap-2 items-center">
+                    <input type="radio" name="appetite" /> Conservative
+                  </label>
+
+                  <label className="flex gap-2 items-center">
+                    <input type="radio" name="appetite" /> Moderate
+                  </label>
+
+                  <label className="flex gap-2 items-center">
+                    <input type="radio" name="appetite" /> Aggressive
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4 */}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">
+              Section 4 — Existing Investments
+            </h2>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                "Mutual Funds",
+                "Stocks",
+                "FD",
+                "Insurance",
+                "Gold",
+                "None",
+              ].map((item) => (
+                <label key={item} className="flex gap-2 items-center">
+                  <input type="checkbox" /> {item}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 5 */}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">
+              Section 5 — KYC Status
+            </h2>
+
+            <div className="space-y-5">
+              <div>
+                <label className="font-medium block mb-2">
+                  Are you KYC compliant?
+                </label>
+
+                <select className="w-full border rounded-xl p-3">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Not Sure</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="font-medium block mb-2">
+                  PAN Available?
+                </label>
+
+                <select className="w-full border rounded-xl p-3">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 6 */}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">
+              Section 6 — Document Upload
+            </h2>
+
+            <div className="space-y-5">
+              <div>
+                <label className="font-medium block mb-2">
+                  Upload PAN Card
+                </label>
+                <input type="file" className="w-full border rounded-xl p-3" />
+              </div>
+
+              <div>
+                <label className="font-medium block mb-2">
+                  Upload Aadhaar Card
+                </label>
+                <input type="file" className="w-full border rounded-xl p-3" />
+              </div>
+
+              <div>
+                <label className="font-medium block mb-2">
+                  Upload Cancelled Cheque
+                </label>
+                <input type="file" className="w-full border rounded-xl p-3" />
+              </div>
+
+              <p className="text-sm text-gray-500">
+                All uploaded documents are secure and confidential and will only be used for investment and KYC purposes.
+              </p>
+            </div>
+          </div>
+
+          {/* Declaration */}
+          <div className="flex gap-3 items-start">
+            <input type="checkbox" className="mt-1" />
+            <p className="text-gray-700">
+              I confirm that the information provided by me is correct.
+            </p>
+          </div>
+
+          {/* Submit */}
+          <div className="text-center pt-4">
+            <button
+              type="submit"
+              className="bg-black text-white px-10 py-3 rounded-2xl text-lg hover:opacity-90 transition"
+            >
+              Submit Application
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
