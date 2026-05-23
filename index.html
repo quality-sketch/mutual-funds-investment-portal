@@ -17,7 +17,63 @@ padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
+<script>
 
+document.querySelector("form").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const data = {
+
+fullName: document.querySelector('input[placeholder="Enter your full name"]').value,
+
+mobile: document.querySelector('input[placeholder="Enter mobile number"]').value,
+
+email: document.querySelector('input[placeholder="Enter email address"]').value,
+
+city: document.querySelector('input[placeholder="Enter city"]').value,
+
+occupation: document.querySelector('input[placeholder="Enter occupation"]').value,
+
+dob: document.querySelector('input[type="date"]').value,
+
+goal: document.querySelectorAll("select")[0].value,
+
+horizon: document.querySelectorAll("select")[1].value,
+
+monthly: document.querySelectorAll("select")[2].value,
+
+type: document.querySelectorAll("select")[3].value,
+
+riskReaction: document.querySelector('input[name="risk"]:checked')?.parentElement.innerText || "",
+
+riskAppetite: document.querySelector('input[name="appetite"]:checked')?.parentElement.innerText || "",
+
+investments: Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+.map(el => el.parentElement.innerText)
+.join(", "),
+
+kyc: document.querySelector('input[name="kyc"]:checked')?.parentElement.innerText || "",
+
+pan: document.querySelector('input[name="pan"]:checked')?.parentElement.innerText || ""
+
+};
+
+await fetch("PASTE_YOUR_SCRIPT_URL_HERE", {
+
+method:"POST",
+
+body:JSON.stringify(data)
+
+});
+
+alert("Form Submitted Successfully!");
+
+document.querySelector("form").reset();
+
+});
+
+</script>
 body{
 background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
 min-height:100vh;
